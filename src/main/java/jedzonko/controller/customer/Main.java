@@ -24,6 +24,11 @@ public class Main extends Controller
 	{
 		changeScene(event, "Common/Welcome");
 	}
+	
+	public void changeSceneToEditAccount(ActionEvent event)
+	{
+		changeScene(event, "Common/EditAccount");
+	}
 
 	public void validateAndGoToMenu(ActionEvent event)
 	{

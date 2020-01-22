@@ -24,6 +24,11 @@ public class Main extends Controller
 		changeScene(event, "Restaurant/Orders");
 	}
 	
+	public void changeSceneToEditAccount(ActionEvent event)
+	{
+		changeScene(event, "Common/EditAccount");
+	}
+	
 	public void changeSceneToWelcome(ActionEvent event)
 	{
 		changeScene(event, "Common/Welcome");

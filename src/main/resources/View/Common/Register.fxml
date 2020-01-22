@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="736.0" prefWidth="499.0" styleClass="hbox" stylesheets="@../../CSS/GridPane.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jedzonko.controller.customer.Register">
+<AnchorPane prefHeight="736.0" prefWidth="499.0" styleClass="hbox" stylesheets="@../../CSS/GridPane.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jedzonko.controller.common.Register">
    <children>
       <Label layoutX="30.0" layoutY="14.0" prefHeight="76.0" prefWidth="368.0" text="Stwórz nowe konto:" textFill="#f8f8f8">
          <font>

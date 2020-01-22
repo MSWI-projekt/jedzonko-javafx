@@ -48,6 +48,6 @@ public class Welcome extends Controller
 	
 	public void changeSceneToRegister(ActionEvent event)
 	{
-		changeScene(event, "Customer/Register");
+		changeScene(event, "Common/Register");
 	}
 }

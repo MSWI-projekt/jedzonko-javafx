@@ -1,4 +1,4 @@
-package jedzonko.controller.customer;
+package jedzonko.controller.common;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
