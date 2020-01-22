@@ -15,6 +15,7 @@ public class Main extends Controller
 	
 	public void initialize()
 	{
+		restaurant = null;
 		List<Account> restaurants = DBManager.selectAllWhere("Account", "type", "restaurant");
 		restaurants.forEach(restaurant -> listView.getItems().add(restaurant.getLogin()));
 	}
@@ -26,23 +27,14 @@ public class Main extends Controller
 
 	public void validateAndGoToMenu(ActionEvent event)
 	{
-		String restaurant = getSelectedRestaurant();
-		if (restaurant != null)
-		{
-			changeScene(event, "Customer/Menu", restaurant);
-		}
-		else
+		if (listView.getSelectionModel().getSelectedIndex() == -1)
 		{
 			error("Nie wybrano żadnej restauracji");
 		}
-	}
-
-	private String getSelectedRestaurant()
-	{
-		if (listView.getSelectionModel().getSelectedIndex() == -1)
+		else
 		{
-			return null;
+			restaurant = listView.getSelectionModel().getSelectedItem();
+			changeScene(event, "Customer/Menu");
 		}
-		return listView.getSelectionModel().getSelectedItem();
 	}
 }

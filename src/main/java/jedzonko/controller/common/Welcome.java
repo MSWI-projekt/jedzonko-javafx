@@ -8,23 +8,34 @@ import jedzonko.utils.Login;
 
 public class Welcome extends Controller
 {
-	@FXML private TextField login;
+	@FXML private TextField loginTextField;
 	@FXML private PasswordField password;
+	
+	public void initialize()
+	{
+		login = null;
+		restaurant = null;
+		dish = null;
+	}
 	
 	public void login(ActionEvent event)
 	{
-		String type = Login.validateCredentials(login.getText(), password.getText());
+		String type = Login.validateCredentials(loginTextField.getText(), password.getText());
 		
 		switch (type)
 		{
 			case "admin":
+				login = loginTextField.getText();
 				changeScene(event, "Admin/Main");
 				break;
 			case "customer":
+				login = loginTextField.getText();
 				changeScene(event, "Customer/Main");
 				break;
 			case "restaurant":
-				changeScene(event, "Restaurant/Main", login.getText());
+				login = loginTextField.getText();
+				restaurant = loginTextField.getText();
+				changeScene(event, "Restaurant/Main");
 				break;
 			case "wrong login":
 				error("Niepoprawny login");

@@ -9,21 +9,27 @@ import jedzonko.model.Dish;
 import jedzonko.utils.DBManager;
 import jedzonko.utils.ValidateForm;
 
+import java.util.List;
+
 public class EditDish extends Controller
 {
 	@FXML private TextField name;
 	@FXML private TextField price;
 	@FXML private TextArea description;
 	private Dish beforeEdit = null;
-	private String restaurant;
 	
-	@Override
-	public void initView(String restaurant, int selectedIndex)
+	public void initialize()
 	{
-		this.restaurant = restaurant;
-		if (selectedIndex != -1)
+		if (dish != null)
 		{
-			beforeEdit = DBManager.selectOneWhere("Dish", "restaurant", restaurant, selectedIndex);
+			beforeEdit = (Dish) DBManager.selectAllWhere(
+					"Dish",
+					"restaurant",
+					"name",
+					restaurant,
+					dish
+			).get(0);
+			
 			name.setText(beforeEdit.getName());
 			price.setText(String.valueOf(beforeEdit.getPrice()));
 			description.setText(beforeEdit.getDescription());
@@ -32,7 +38,7 @@ public class EditDish extends Controller
 	
 	public void changeSceneToRestaurantMenu(ActionEvent event)
 	{
-		changeScene(event, "Restaurant/Menu", restaurant);
+		changeScene(event, "Restaurant/Menu");
 	}
 	
 	public void delete(ActionEvent event)

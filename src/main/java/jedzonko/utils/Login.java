@@ -2,15 +2,19 @@ package jedzonko.utils;
 
 import jedzonko.model.Account;
 
+import java.util.List;
+
 public class Login
 {
 	public static String validateCredentials(String login, String password)
 	{
-		Account account = DBManager.selectOneWhere("Account", "login", login, 0);
-		if (account == null)
+		List<Account> accounts = DBManager.selectAllWhere("Account", "login", login);
+		if (accounts.size() == 0)
 		{
 			return "wrong login";
 		}
+		
+		Account account = accounts.get(0);
 		if (account.getPassword() != password.hashCode())
 		{
 			return "wrong password";

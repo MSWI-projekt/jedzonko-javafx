@@ -8,23 +8,20 @@ import jedzonko.controller.common.Controller;
 public class Main extends Controller
 {
 	@FXML private Label label;
-	private String restaurant;
 	
-	@Override
-	public void initView(String restaurant)
+	public void initialize()
 	{
-		this.restaurant = restaurant;
 		label.setText("Panel restauracji: " + restaurant);
 	}
 	
 	public void changeSceneToRestaurantMenu(ActionEvent event)
 	{
-		changeScene(event, "Restaurant/Menu", restaurant);
+		changeScene(event, "Restaurant/Menu");
 	}
 	
 	public void changeSceneToRestaurantOrders(ActionEvent event)
 	{
-		changeScene(event, "Restaurant/Orders", restaurant);
+		changeScene(event, "Restaurant/Orders");
 	}
 	
 	public void changeSceneToWelcome(ActionEvent event)

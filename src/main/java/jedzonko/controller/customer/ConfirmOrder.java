@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import jedzonko.controller.common.Controller;
+import jedzonko.model.Account;
 import jedzonko.model.Dish;
 import jedzonko.model.Order;
 import jedzonko.utils.DBManager;
@@ -16,19 +17,19 @@ public class ConfirmOrder extends Controller
 	@FXML private TextField name;
 	@FXML private TextField address;
 	@FXML private TextField phone;
-	private String restaurant;
 	
-	@Override
-	public void initView(String restaurant, int index)
+	public void initialize()
 	{
-		this.restaurant = restaurant;
-		Dish selectedDish = DBManager.selectOneWhere("Dish", "restaurant", restaurant, index);
-		order.setText(selectedDish.getName());
+		order.setText(dish);
+		Account account = (Account) DBManager.selectAllWhere("Account", "login", login).get(0);
+		name.setText(account.getFullName());
+		address.setText(account.getAddress());
+		phone.setText(account.getPhoneNumber());
 	}
 	
-	public void changeSceneToCustomerMain(ActionEvent event)
+	public void changeSceneToCustomerMenu(ActionEvent event)
 	{
-		changeScene(event, "Customer/Main");
+		changeScene(event, "Customer/Menu");
 	}
 	
 	private void changeSceneToCustomerThankYou(ActionEvent event)

@@ -19,13 +19,28 @@ public class Account
     @Column(name = "type")
     private String type;
 	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "surname")
 	private String surname;
+	
+	@Column(name = "postcode")
 	private String postcode;
+	
+	@Column(name = "city")
 	private String city;
+	
+	@Column(name = "houseNumber")
 	private String houseNumber;
+	
+	@Column(name = "street")
 	private String street;
+	
+	@Column(name = "phoneNumber")
 	private String phoneNumber;
+	
+	@Column(name = "email")
 	private String email;
 	
 	public Account(
@@ -67,6 +82,16 @@ public class Account
 	public String toString()
 	{
 		return type + ": " + login;
+	}
+	
+	public String getFullName()
+	{
+		return name + " " + surname;
+	}
+	
+	public String getAddress()
+	{
+		return street + " " + houseNumber;
 	}
 	
 	public String getLogin()

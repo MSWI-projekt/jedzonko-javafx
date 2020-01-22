@@ -11,13 +11,11 @@ import java.util.List;
 
 public class Orders extends Controller
 {
-	private String restaurant;
 	private List<Order> orders;
 	@FXML private ListView<String> listView;
 	
-	public void initView(String restaurant)
+	public void initialize()
 	{
-		this.restaurant = restaurant;
 		orders = DBManager.selectAllWhere("Order", "restaurant", restaurant);
 		for (Order order : orders)
 		{
@@ -34,7 +32,7 @@ public class Orders extends Controller
 	
 	public void changeSceneToRestaurantMain(ActionEvent event)
 	{
-		changeScene(event, "Restaurant/Main", restaurant);
+		changeScene(event, "Restaurant/Main");
 	}
 	
 	public void deliverAll()
