@@ -7,12 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import jedzonko.model.OrderDish;
+import java.util.List;
 
 public class Controller
 {
 	protected static String login;
 	protected static String restaurant;
 	protected static String dish;
+	protected static List<OrderDish> orderDishes;
 	
 	protected void changeScene(ActionEvent event, String viewName)
 	{

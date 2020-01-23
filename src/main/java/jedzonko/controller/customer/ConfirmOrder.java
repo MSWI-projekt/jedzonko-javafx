@@ -6,8 +6,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import jedzonko.controller.common.Controller;
 import jedzonko.model.Account;
-import jedzonko.model.Dish;
 import jedzonko.model.Order;
+import jedzonko.model.OrderDish;
 import jedzonko.utils.DBManager;
 import jedzonko.utils.ValidateForm;
 
@@ -20,7 +20,7 @@ public class ConfirmOrder extends Controller
 	
 	public void initialize()
 	{
-		order.setText(dish);
+		setOrderText();
 		Account account = (Account) DBManager.selectAllWhere("Account", "login", login).get(0);
 		name.setText(account.getFullName());
 		address.setText(account.getAddress());
@@ -52,8 +52,23 @@ public class ConfirmOrder extends Controller
 	
 	private void placeOrder(ActionEvent event)
 	{
-		Order newOrder = new Order(order.getText(), name.getText(), address.getText(), phone.getText(), restaurant);
+		String orderText = order.getText().replaceAll("\n", " ").trim();
+		Order newOrder = new Order(orderText, name.getText(), address.getText(), phone.getText(), restaurant);
 		DBManager.insert(newOrder);
 		changeSceneToCustomerThankYou(event);
+	}
+	
+	private void setOrderText()
+	{
+		StringBuilder stringBuilder = new StringBuilder();
+		for (OrderDish orderDish : orderDishes)
+		{
+			if (orderDish.isOrdered())
+			{
+				stringBuilder.append(orderDish.getShortString());
+				stringBuilder.append("\n");
+			}
+		}
+		order.setText(stringBuilder.toString());
 	}
 }

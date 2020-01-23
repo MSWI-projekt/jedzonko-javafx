@@ -16,6 +16,7 @@ public class Main extends Controller
 	public void initialize()
 	{
 		restaurant = null;
+		orderDishes = null;
 		List<Account> restaurants = DBManager.selectAllWhere("Account", "type", "restaurant");
 		restaurants.forEach(restaurant -> listView.getItems().add(restaurant.getLogin()));
 	}

@@ -16,6 +16,7 @@ public class Welcome extends Controller
 		login = null;
 		restaurant = null;
 		dish = null;
+		orderDishes = null;
 	}
 	
 	public void login(ActionEvent event)
