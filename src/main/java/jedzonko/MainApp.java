@@ -22,7 +22,8 @@ public class MainApp extends Application
 		Parent welcomeView = FXMLLoader.load(getClass().getResource("/View/Common/Welcome.fxml"));
 		mainStage = Loading.getStage();
 		mainStage.setScene(new Scene(welcomeView));
-		mainStage.setTitle("jedzonko");
+		mainStage.setTitle("Jedzonko");
+		mainStage.centerOnScreen();
 		mainStage.show();
 	}
 
