@@ -10,7 +10,8 @@ import javax.persistence.Table;
 public class Account
 {
 	@Id
-	@Column(name = "login")
+
+	@Column(name = "login",unique=true)
 	private String login;
 	
 	@Column(name = "password")
@@ -37,10 +38,10 @@ public class Account
 	@Column(name = "street")
 	private String street;
 	
-	@Column(name = "phoneNumber")
+	@Column(name = "phoneNumber",unique=true)
 	private String phoneNumber;
 	
-	@Column(name = "email")
+	@Column(name = "email",unique=true)
 	private String email;
 	
 	public Account(
@@ -65,7 +66,8 @@ public class Account
 	{
 		//no argument constructor for hibernate to use
 	}
-	
+
+
 	public void changeType()
 	{
 		if (type.equals("customer"))

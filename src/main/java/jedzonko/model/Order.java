@@ -23,13 +23,13 @@ public class Order
 	@Column(name = "address")
 	private String address;
 	
-	@Column(name = "phone")
+	@Column(name = "phone", unique=true)
 	private String phone;
 	
 	@Column(name = "active")
 	private int active = 1;
 	
-	@Column(name = "restaurant")
+	@Column(name = "restaurant", unique=true)
 	private String restaurant;
 	
 	public Order(String dish, String name, String address, String phone, String restaurant)

@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="245.0" prefWidth="236.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jedzonko.controller.restaurant.EditDish">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Nazwa pizzy:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Label layoutX="14.0" layoutY="14.0" text="Nazwa potrawy:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <TextField fx:id="name" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="31.0" />
       <Label layoutX="14.0" layoutY="97.0" text="Składniki:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="97.0" />
       <TextArea fx:id="description" layoutX="14.0" layoutY="114.0" prefHeight="54.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="114.0" />

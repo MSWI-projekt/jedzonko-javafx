@@ -59,6 +59,7 @@ public class EditAccount extends Controller
 		if (account.getType().equals("customer"))
 		{
 			changeScene(event, "Customer/Main");
+
 		}
 		else
 		{
