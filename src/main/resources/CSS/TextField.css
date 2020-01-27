@@ -1,8 +1,8 @@
 .text-field {
     -fx-background-color: #a1bfe7;
-    -fx-background-insets: 0, 1 1 1 1;
-    -fx-background-radius: 5;
     -fx-text-fill: #0d1763;
     -fx-prompt-text-fill: #4f72a7;
+    -fx-font-size: 18.0;
+    -fx-font-weight: bold;
 }
 
