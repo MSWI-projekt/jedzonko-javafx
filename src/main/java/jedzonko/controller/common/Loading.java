@@ -17,6 +17,7 @@ public class Loading extends Preloader
 		mainStage = stage;
 		mainStage.setScene(new Scene(loadingView));
 		mainStage.setTitle("Wczytywanie...");
+		mainStage.centerOnScreen();
 		mainStage.show();
 	}
 	

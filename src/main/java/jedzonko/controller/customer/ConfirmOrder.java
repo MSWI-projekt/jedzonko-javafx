@@ -2,6 +2,7 @@ package jedzonko.controller.customer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import jedzonko.controller.common.Controller;
@@ -17,6 +18,7 @@ public class ConfirmOrder extends Controller
 	@FXML private TextField name;
 	@FXML private TextField address;
 	@FXML private TextField phone;
+	@FXML private Label label;
 	
 	public void initialize()
 	{
@@ -60,6 +62,7 @@ public class ConfirmOrder extends Controller
 	
 	private void setOrderText()
 	{
+		double totalPrice = 0.0;
 		StringBuilder stringBuilder = new StringBuilder();
 		for (OrderDish orderDish : orderDishes)
 		{
@@ -67,8 +70,10 @@ public class ConfirmOrder extends Controller
 			{
 				stringBuilder.append(orderDish.getShortString());
 				stringBuilder.append("\n");
+				totalPrice += orderDish.getPrice();
 			}
 		}
 		order.setText(stringBuilder.toString());
+		label.setText("Razem: " + String.format("%.2f", totalPrice) + " zł");
 	}
 }

@@ -65,7 +65,6 @@
                 <version>0.0.1</version>
                 <configuration>
                     <mainClass>jedzonko.Preloader</mainClass>
-                    <executable>"C:\Program Files\Java\jdk-13.0.1\bin\java.exe"</executable>
                 </configuration>
             </plugin>
         </plugins>
