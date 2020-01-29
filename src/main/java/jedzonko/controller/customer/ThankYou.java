@@ -5,8 +5,8 @@ import jedzonko.controller.common.Controller;
 
 public class ThankYou extends Controller
 {
-	public void changeSceneToWelcome(ActionEvent event)
+	public void changeSceneToCustomerMain(ActionEvent event)
 	{
-		changeScene(event, "Common/Welcome");
+		changeScene(event, "Customer/Main");
 	}
 }
