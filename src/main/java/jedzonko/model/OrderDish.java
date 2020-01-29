@@ -47,4 +47,9 @@ public class OrderDish
 	{
 		return dishLongName + " Ilość: " + quantity;
 	}
+	
+	public String getShortStringWithoutPrice()
+	{
+		return dishShortName + " x" + quantity + " ";
+	}
 }

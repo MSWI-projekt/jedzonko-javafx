@@ -19,6 +19,7 @@ public class ConfirmOrder extends Controller
 	@FXML private TextField address;
 	@FXML private TextField phone;
 	@FXML private Label label;
+	private double totalPrice = 0.0;
 	
 	public void initialize()
 	{
@@ -54,15 +55,22 @@ public class ConfirmOrder extends Controller
 	
 	private void placeOrder(ActionEvent event)
 	{
-		String orderText = order.getText().replaceAll("\n", " ").trim();
-		Order newOrder = new Order(orderText, name.getText(), address.getText(), phone.getText(), restaurant);
+		StringBuilder stringBuilder = new StringBuilder();
+		for (OrderDish orderDish : orderDishes)
+		{
+			if (orderDish.isOrdered())
+			{
+				stringBuilder.append(orderDish.getShortStringWithoutPrice());
+			}
+		}
+		stringBuilder.append(String.format("%.2f zł ", totalPrice));
+		Order newOrder = new Order(stringBuilder.toString(), name.getText(), address.getText(), phone.getText(), restaurant);
 		DBManager.insert(newOrder);
 		changeSceneToCustomerThankYou(event);
 	}
 	
 	private void setOrderText()
 	{
-		double totalPrice = 0.0;
 		StringBuilder stringBuilder = new StringBuilder();
 		for (OrderDish orderDish : orderDishes)
 		{
@@ -74,6 +82,6 @@ public class ConfirmOrder extends Controller
 			}
 		}
 		order.setText(stringBuilder.toString());
-		label.setText("Razem: " + String.format("%.2f", totalPrice) + " zł");
+		label.setText("Razem: " + String.format("%.2f zł", totalPrice));
 	}
 }

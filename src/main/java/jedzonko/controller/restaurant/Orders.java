@@ -17,17 +17,8 @@ public class Orders extends Controller
 	public void initialize()
 	{
 		orders = DBManager.selectAllWhere("Order", "restaurant", restaurant);
-		for (Order order : orders)
-		{
-			if (order.isActive())
-			{
-				listView.getItems().add(order.toString());
-			}
-			else
-			{
-				orders.remove(order);
-			}
-		}
+		orders.removeIf(order -> !order.isActive());
+		orders.forEach(order -> listView.getItems().add(order.toString()));
 	}
 	
 	public void changeSceneToRestaurantMain(ActionEvent event)

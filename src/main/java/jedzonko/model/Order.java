@@ -49,7 +49,7 @@ public class Order
 	@Override
 	public String toString()
 	{
-		return id + ": " + dish + ", " + name + ", " + address + ", " + phone;
+		return id + ": " + dish + name + ", " + address + ", " + phone;
 	}
 	
 	public int getId()
