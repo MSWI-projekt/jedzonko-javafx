@@ -3,12 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="129.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jedzonko.controller.restaurant.Main">
-   <children>
-      <Label fx:id="label" layoutX="14.0" layoutY="14.0" text="placeholder" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <Button layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#changeSceneToRestaurantOrders" text="Obsługa zamówień" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="31.0" />
-      <Button layoutX="140.0" layoutY="31.0" mnemonicParsing="false" onAction="#changeSceneToRestaurantMenu" text="Edcja Menu" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="31.0" />
-      <Button layoutX="226.0" layoutY="31.0" mnemonicParsing="false" onAction="#changeSceneToEditAccount" text="Edycja danych konta" />
-      <Button layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onAction="#changeSceneToWelcome" text="Wróć" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="90.0" />
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" styleClass="main" stylesheets="@../../CSS/Styles.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jedzonko.controller.restaurant.Main">
+   <Label fx:id="label" layoutX="327.0" layoutY="134.0" text="placeholder" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="134.0" />
+   <Button layoutX="327.0" layoutY="176.0" mnemonicParsing="false" onAction="#changeSceneToRestaurantOrders" prefHeight="39.0" prefWidth="346.0" text="Obsługa zamówień" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="176.0" />
+   <Button layoutX="327.0" layoutY="233.0" mnemonicParsing="false" onAction="#changeSceneToRestaurantMenu" prefHeight="39.0" prefWidth="346.0" text="Edcja Menu" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="233.0" />
+   <Button layoutX="327.0" layoutY="291.0" mnemonicParsing="false" onAction="#changeSceneToEditAccount" prefHeight="39.0" prefWidth="346.0" text="Edycja danych konta" />
+   <Button layoutX="327.0" layoutY="348.0" mnemonicParsing="false" onAction="#changeSceneToWelcome" prefHeight="39.0" prefWidth="346.0" text="Wróć" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="348.0" />
 </AnchorPane>
