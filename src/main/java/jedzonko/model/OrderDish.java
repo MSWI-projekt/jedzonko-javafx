@@ -15,16 +15,11 @@ public class OrderDish
 		this.price = price;
 	}
 	
-	public void incQuantity()
+	public void changeQuantity(int change)
 	{
-		quantity++;
-	}
-	
-	public void decQuantity()
-	{
-		if (quantity > 0)
+		if (quantity + change >= 0)
 		{
-			quantity--;
+			quantity += change;
 		}
 	}
 	

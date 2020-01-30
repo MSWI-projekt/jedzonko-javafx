@@ -2,6 +2,7 @@ package jedzonko.controller.customer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import jedzonko.controller.common.Controller;
 import jedzonko.model.Dish;
@@ -13,6 +14,7 @@ import java.util.List;
 public class Menu extends Controller
 {
 	@FXML private ListView<String> listView;
+	@FXML private Label label;
 	
 	public void initialize()
 	{
@@ -23,6 +25,7 @@ public class Menu extends Controller
 			dishes.forEach(dish -> orderDishes.add(new OrderDish(dish.getName(), dish.toString(), dish.getPrice())));
 		}
 		orderDishes.forEach(dish -> listView.getItems().add(dish.getLongString()));
+		updateTotalPrice();
 	}
 	
 	public void changeSceneToCustomerMain(ActionEvent event)
@@ -46,17 +49,15 @@ public class Menu extends Controller
 	
 	public void incQuantity()
 	{
-		int index = listView.getSelectionModel().getSelectedIndex();
-		if (index == -1)
-		{
-			return;
-		}
-		
-		orderDishes.get(index).incQuantity();
-		listView.getItems().set(index, orderDishes.get(index).getLongString());
+		changeQuantity(1);
 	}
 	
 	public void decQuantity()
+	{
+		changeQuantity(-1);
+	}
+	
+	private void changeQuantity(int change)
 	{
 		int index = listView.getSelectionModel().getSelectedIndex();
 		if (index == -1)
@@ -64,7 +65,14 @@ public class Menu extends Controller
 			return;
 		}
 		
-		orderDishes.get(index).decQuantity();
+		orderDishes.get(index).changeQuantity(change);
 		listView.getItems().set(index, orderDishes.get(index).getLongString());
+		updateTotalPrice();
+	}
+	
+	private void updateTotalPrice()
+	{
+		double price = orderDishes.stream().mapToDouble(OrderDish::getPrice).sum();
+		label.setText("Razem: " + String.format("%.2f zł", price));
 	}
 }
