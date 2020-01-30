@@ -78,8 +78,7 @@ public class Account
 		}
 	}
 	
-	@Override
-	public String toString()
+	public String getTypeAndLogin()
 	{
 		return type + ": " + login;
 	}

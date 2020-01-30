@@ -64,7 +64,7 @@ public class ConfirmOrder extends Controller
 			}
 		}
 		stringBuilder.append(String.format("%.2f zł ", totalPrice));
-		Order newOrder = new Order(stringBuilder.toString(), name.getText(), address.getText(), phone.getText(), restaurant);
+		Order newOrder = new Order(stringBuilder.toString(), name.getText(), address.getText(), phone.getText(), restaurant, login);
 		DBManager.insert(newOrder);
 		changeSceneToCustomerThankYou(event);
 	}

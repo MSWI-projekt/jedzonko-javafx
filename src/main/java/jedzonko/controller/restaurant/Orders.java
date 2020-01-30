@@ -18,7 +18,7 @@ public class Orders extends Controller
 	{
 		orders = DBManager.selectAllWhere("Order", "restaurant", restaurant);
 		orders.removeIf(order -> !order.isActive());
-		orders.forEach(order -> listView.getItems().add(order.toString()));
+		orders.forEach(order -> listView.getItems().add(order.getInfoRestaurant()));
 	}
 	
 	public void changeSceneToRestaurantMain(ActionEvent event)

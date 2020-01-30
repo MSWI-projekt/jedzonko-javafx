@@ -30,6 +30,11 @@ public class Main extends Controller
 	{
 		changeScene(event, "Common/EditAccount");
 	}
+	
+	public void changeSceneToCustomerOrders(ActionEvent event)
+	{
+		changeScene(event, "Customer/Orders");
+	}
 
 	public void validateAndGoToMenu(ActionEvent event)
 	{

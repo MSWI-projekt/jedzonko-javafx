@@ -22,7 +22,7 @@ public class Menu extends Controller
 		{
 			orderDishes = new ArrayList<>();
 			List<Dish> dishes = DBManager.selectAllWhere("Dish", "restaurant", restaurant);
-			dishes.forEach(dish -> orderDishes.add(new OrderDish(dish.getName(), dish.toString(), dish.getPrice())));
+			dishes.forEach(dish -> orderDishes.add(new OrderDish(dish.getName(), dish.getInfo(), dish.getPrice())));
 		}
 		orderDishes.forEach(dish -> listView.getItems().add(dish.getLongString()));
 		updateTotalPrice();

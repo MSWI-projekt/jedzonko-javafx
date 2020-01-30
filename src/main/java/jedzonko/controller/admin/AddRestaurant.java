@@ -22,7 +22,7 @@ public class AddRestaurant extends Controller
 	public void initialize()
 	{
 		accounts = DBManager.selectAll("Account");
-		accounts.forEach(account -> listView.getItems().add(account.toString()));
+		accounts.forEach(account -> listView.getItems().add(account.getTypeAndLogin()));
 	}
 	
 	public void changeType()
@@ -44,7 +44,7 @@ public class AddRestaurant extends Controller
 		
 		account.changeType();
 		DBManager.update(account);
-		listView.getItems().set(selectedIndex, account.toString());
+		listView.getItems().set(selectedIndex, account.getTypeAndLogin());
 		accounts.set(selectedIndex, account);
 	}
 	

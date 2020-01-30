@@ -37,7 +37,7 @@ public class Dish implements Serializable
 		//no argument constructor for hibernate to use
 	}
 	
-	public String toString()
+	public String getInfo()
 	{
 		return getName() + " (" + getPrice() + " zł):\n" + getDescription();
 	}

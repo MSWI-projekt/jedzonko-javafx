@@ -32,13 +32,17 @@ public class Order
 	@Column(name = "restaurant")
 	private String restaurant;
 	
-	public Order(String dish, String name, String address, String phone, String restaurant)
+	@Column(name = "customer")
+	private String customer;
+	
+	public Order(String dish, String name, String address, String phone, String restaurant, String customer)
 	{
 		this.dish = dish;
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
 		this.restaurant = restaurant;
+		this.customer = customer;
 	}
 	
 	public Order()
@@ -46,10 +50,18 @@ public class Order
 		//no argument constructor for hibernate to use
 	}
 	
-	@Override
-	public String toString()
+	public String getInfoRestaurant()
 	{
 		return id + ": " + dish + name + ", " + address + ", " + phone;
+	}
+	
+	public String getInfoCustomer()
+	{
+		if (isActive())
+		{
+			return restaurant + ":\n" + dish + "\nStatus: W trakcie przygotowania";
+		}
+		return restaurant + ":\n" + dish + "\nStatus: Doręczono";
 	}
 	
 	public int getId()
@@ -120,6 +132,16 @@ public class Order
 	public void setRestaurant(String restaurant)
 	{
 		this.restaurant = restaurant;
+	}
+	
+	public String getCustomer()
+	{
+		return customer;
+	}
+	
+	public void setCustomer(String customer)
+	{
+		this.customer = customer;
 	}
 	
 	public void deliver()
