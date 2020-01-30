@@ -8,5 +8,5 @@
    <Button layoutX="327.0" layoutY="176.0" mnemonicParsing="false" onAction="#changeSceneToRestaurantOrders" prefHeight="39.0" prefWidth="346.0" text="Obsługa zamówień" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="176.0" />
    <Button layoutX="327.0" layoutY="233.0" mnemonicParsing="false" onAction="#changeSceneToRestaurantMenu" prefHeight="39.0" prefWidth="346.0" text="Edcja Menu" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="233.0" />
    <Button layoutX="327.0" layoutY="291.0" mnemonicParsing="false" onAction="#changeSceneToEditAccount" prefHeight="39.0" prefWidth="346.0" text="Edycja danych konta" />
-   <Button layoutX="327.0" layoutY="348.0" mnemonicParsing="false" onAction="#changeSceneToWelcome" prefHeight="39.0" prefWidth="346.0" text="Wróć" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="348.0" />
+   <Button layoutX="327.0" layoutY="348.0" mnemonicParsing="false" onAction="#changeSceneToWelcome" prefHeight="39.0" prefWidth="346.0" text="Wyloguj" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="348.0" />
 </AnchorPane>

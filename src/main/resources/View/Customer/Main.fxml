@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" styleClass="main" stylesheets="@../../CSS/Styles.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jedzonko.controller.customer.Main">
-   <Button layoutX="22.0" layoutY="448.0" mnemonicParsing="false" onAction="#changeSceneToWelcome" prefHeight="54.0" prefWidth="205.0" text="Wróć" />
+   <Button layoutX="22.0" layoutY="448.0" mnemonicParsing="false" onAction="#changeSceneToWelcome" prefHeight="54.0" prefWidth="205.0" text="Wyloguj" />
    <Button layoutX="249.0" layoutY="448.0" mnemonicParsing="false" onAction="#validateAndGoToMenu" prefHeight="54.0" prefWidth="218.0" text="Dalej" />
    <ListView fx:id="listView" layoutX="22.0" layoutY="55.0" prefHeight="375.0" prefWidth="441.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="55.0" />
    <Label layoutX="22.0" layoutY="28.0" text="Wybierz restaurację:" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="28.0" />
