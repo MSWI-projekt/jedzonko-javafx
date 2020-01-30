@@ -39,7 +39,7 @@ public class Dish implements Serializable
 	
 	public String toString()
 	{
-		return getName() + " (" + getPrice() + " zł): " + getDescription();
+		return getName() + " (" + getPrice() + " zł):\n" + getDescription();
 	}
 	
 	public String getName()

@@ -45,7 +45,7 @@ public class OrderDish
 	
 	public String getLongString()
 	{
-		return dishLongName + " Ilość: " + quantity;
+		return dishLongName + "\nIlość: " + quantity;
 	}
 	
 	public String getShortStringWithoutPrice()
