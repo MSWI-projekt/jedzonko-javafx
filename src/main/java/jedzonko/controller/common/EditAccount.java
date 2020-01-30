@@ -8,6 +8,7 @@ import jedzonko.model.Account;
 import jedzonko.model.Dish;
 import jedzonko.model.Order;
 import jedzonko.utils.DBManager;
+import jedzonko.utils.ValidateForm;
 
 import java.util.List;
 
@@ -73,6 +74,25 @@ public class EditAccount extends Controller
 	
 	private void validateAndGoBack(ActionEvent event)
 	{
+		String errorMessage = ValidateForm.validateRegistration(
+				loginTextField.getText(),
+				password.getText(),
+				name.getText(),
+				surname.getText(),
+				postalCode.getText(),
+				city.getText(),
+				houseNumber.getText(),
+				street.getText(),
+				phoneNumber.getText(),
+				email.getText()
+		);
+		
+		if (!errorMessage.isEmpty())
+		{
+			error(errorMessage);
+			return;
+		}
+		
 		if (login.equals(loginTextField.getText()))
 		{
 			DBManager.update(account);

@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import jedzonko.controller.common.Controller;
 import jedzonko.model.Account;
 import jedzonko.utils.DBManager;
+import jedzonko.utils.ValidateForm;
 
 public class Register extends Controller
 {
@@ -23,6 +24,25 @@ public class Register extends Controller
 	
 	public void register(ActionEvent event)
 	{
+		String errorMessage = ValidateForm.validateRegistration(
+				login.getText(),
+				password.getText(),
+				name.getText(),
+				surname.getText(),
+				postalCode.getText(),
+				city.getText(),
+				houseNumber.getText(),
+				street.getText(),
+				phoneNumber.getText(),
+				email.getText()
+		);
+		
+		if (!errorMessage.isEmpty())
+		{
+			error(errorMessage);
+			return;
+		}
+		
 		Account account = new Account(
 				login.getText(),
 				password.getText(),
@@ -36,8 +56,15 @@ public class Register extends Controller
 				email.getText()
 		);
 		
-		DBManager.insert(account);
-		changeSceneToWelcome(event);
+		try
+		{
+			DBManager.insert(account);
+			changeSceneToWelcome(event);
+		}
+		catch (Exception e)
+		{
+			error("Ten login jest już zajęty");
+		}
 	}
 	
 	public void changeSceneToWelcome(ActionEvent event)

@@ -27,4 +27,45 @@ public class ValidateForm
 		}
 		return "";
 	}
+	
+	public static String validateRegistration(
+			String login, String password, String name, String surname, String postcode, String city,
+			String houseNumber, String street, String phoneNumber, String email)
+	{
+		if (login.isEmpty() ||
+			password.isEmpty() ||
+			name.isEmpty() ||
+			surname.isEmpty() ||
+			postcode.isEmpty() ||
+			city.isEmpty() ||
+			houseNumber.isEmpty() ||
+			street.isEmpty() ||
+			phoneNumber.isEmpty() ||
+			email.isEmpty())
+		{
+			return "Prosimy wypełnić wszystkie pola";
+		}
+		
+		if (!phoneNumber.matches("[\\d]{9}$"))
+		{
+			return "Niepoprawny numer telefonu";
+		}
+		
+		if (!email.matches(".+@.+"))
+		{
+			return "Niepoprawny adres email";
+		}
+		
+		if (!postcode.matches("[\\d]{2}-?[\\d]{3}$"))
+		{
+			return "Niepoprawny kod pocztowy";
+		}
+		
+		if (!houseNumber.matches("[1-9][\\d]*$") || houseNumber.length() > 4)
+		{
+			return "Niepoprawny numer domu";
+		}
+		
+		return "";
+	}
 }
